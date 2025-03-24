@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "buildCommand": "sh vercel.sh",
+  "builds": [
+    {
+      "src": "credit_irr/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "credit_irr/wsgi.py"
+    }
+  ]
+}
