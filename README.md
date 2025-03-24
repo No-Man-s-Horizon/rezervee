@@ -12,4 +12,4 @@
 
 ### Browsing
 * DRF Browser
-* Swagger
+* Swagger: https://github.com/tfranzel/drf-spectacular/
