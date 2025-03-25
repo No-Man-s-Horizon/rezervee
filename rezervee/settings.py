@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'reservations',
 
     # Third Party Apps
-    'corsheaders'
+    'corsheaders',
     'drf_spectacular',
     'rest_framework',
     # 'django_tables2',
