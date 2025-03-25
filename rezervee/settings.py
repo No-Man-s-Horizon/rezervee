@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-596$m+&=%r)=*cj9c^j57&u2$sp&8c=ep%qaa+6t9@z#d68ika
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", "*"]
 
 
 # Application definition
@@ -47,10 +47,10 @@ INSTALLED_APPS = [
     'reservations',
 
     # Third Party Apps
+    'corsheaders'
     'drf_spectacular',
     'rest_framework',
     # 'django_tables2',
-    # 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +61,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
@@ -73,6 +76,7 @@ SIMPLE_JWT = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # 'rest_framework.permissions.AllowAny'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
