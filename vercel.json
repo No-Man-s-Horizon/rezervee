@@ -3,7 +3,7 @@
   "buildCommand": "sh vercel.sh",
   "builds": [
     {
-      "src": "credit_irr/wsgi.py",
+      "src": "rezervee/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
@@ -22,7 +22,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "credit_irr/wsgi.py"
+      "dest": "rezervee/wsgi.py"
     }
   ]
 }
